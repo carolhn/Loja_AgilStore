@@ -12,7 +12,7 @@ const sequelize = new Sequelize({
   password: PG_PASSWORD || 'password',
   database: PG_DATABASE || 'loja-agilstore',
   dialect: 'postgres',
-  logging: true,
+  logging: false,
 });
 
 export default sequelize;
