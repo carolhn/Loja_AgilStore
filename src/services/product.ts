@@ -2,7 +2,7 @@ import { TProduct } from 'src/types/product';
 import productModel from '../database/models/product';
 import { validationNewProduct } from './validations/validationInputsValues';
 
-async function CreateProductService({
+export async function createProductService({
   name_product,
   category,
   quantity,
@@ -30,4 +30,18 @@ async function CreateProductService({
   };
 }
 
-export default CreateProductService;
+export async function listProductService(
+  category: string,
+  orderProduct: 'name_product' | 'quantity' | 'price',
+): Promise<TProduct[]> {
+  const filterCategory = category ? { category } : {};
+
+  const productList = await productModel.findAll({
+    where: {
+      ...filterCategory,
+    },
+    order: [[orderProduct, 'ASC']],
+  });
+
+  return productList.map(product => product.toJSON() as TProduct);
+}
