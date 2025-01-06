@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createProductService, listProductService } from '../services/product';
+import { createProductService, listProductService, updateProductService } from '../services/product';
 
 export async function createProductController(req: Request, res: Response): Promise<void> {
   const { name_product, category, quantity, price } = req.body;
@@ -27,6 +27,23 @@ export async function listProductController(req: Request, res: Response): Promis
     );
 
     res.status(200).json(productList);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+export async function updateProductController(req: Request, res: Response): Promise<void> {
+  const { id } = req.params;
+  const { name_product, category, quantity, price } = req.body;
+
+  try {
+    const updatedProduct = await updateProductService(id, { name_product, category, quantity, price });
+
+    if (updatedProduct.status === 'ERROR') {
+      res.status(404).json({ message: updatedProduct.message });
+    }
+
+    res.status(200).json(updatedProduct);
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' });
   }
