@@ -1,5 +1,6 @@
 import { TProduct } from 'src/types/product';
 import productModel from '../database/models/product';
+import { readProductsData, writeProductsData } from '../utils/index';
 import { validationNewProduct } from './validations/validationInputsValues';
 
 export async function createProductService({
@@ -8,26 +9,38 @@ export async function createProductService({
   quantity,
   price,
 }: TProduct): Promise<{ status: string; data?: TProduct; message?: string }> {
-  const validationError = validationNewProduct({
-    name_product,
-    category,
-    quantity,
-    price,
-  });
+  try {
+    const validationError = validationNewProduct({
+      name_product,
+      category,
+      quantity,
+      price,
+    });
 
-  if (validationError) {
+    if (validationError) {
+      return {
+        status: validationError.status,
+        message: validationError.message,
+      };
+    }
+
+    const newProduct = await productModel.create({ name_product, category, quantity, price });
+
+    const products = await readProductsData();
+    products.push(newProduct.toJSON() as TProduct);
+    await writeProductsData(products);
+
     return {
-      status: validationError.status,
-      message: validationError.message,
+      status: 'SUCCESS',
+      data: newProduct.toJSON() as TProduct,
+    };
+  } catch (error) {
+    console.error('Error creating product:', error);
+    return {
+      status: 'ERROR',
+      message: 'Internal Server Error',
     };
   }
-
-  const newProduct = await productModel.create({ name_product, category, quantity, price });
-
-  return {
-    status: 'SUCCESS',
-    data: newProduct.toJSON() as TProduct,
-  };
 }
 
 export async function listProductService(
@@ -75,6 +88,12 @@ export async function updateProductService(
 
   await isProduct.update({ name_product, category, quantity, price });
 
+  const updatedProductData = await readProductsData();
+  const updateProduct = updatedProductData.map(product =>
+    product.id === Number(id) ? { ...product, name_product, category, quantity, price } : product,
+  );
+  await writeProductsData(updateProduct);
+
   return {
     status: 'SUCCESS',
     data: isProduct.toJSON() as TProduct,
@@ -92,6 +111,10 @@ export async function deleteProductService(id: string): Promise<{ status: string
   }
 
   await isProduct.destroy();
+
+  const deleteProductData = await readProductsData();
+  const deleteProduct = deleteProductData.filter(product => product.id !== Number(id));
+  await writeProductsData(deleteProduct);
 
   return {
     status: 'SUCCESS',
