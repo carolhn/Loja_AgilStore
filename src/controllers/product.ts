@@ -13,7 +13,6 @@ export async function createProductController(req: Request, res: Response): Prom
 
     res.status(201).json(newProduct);
   } catch (error) {
-    console.error('controler---', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 }
