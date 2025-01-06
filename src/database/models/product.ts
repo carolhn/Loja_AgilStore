@@ -29,7 +29,7 @@ const productModel = dbConnect.define(
   },
   {
     timestamps: false,
-    tableName: 'Products',
+    tableName: 'products',
   },
 );
 
