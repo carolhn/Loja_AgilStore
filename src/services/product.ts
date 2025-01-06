@@ -45,3 +45,38 @@ export async function listProductService(
 
   return productList.map(product => product.toJSON() as TProduct);
 }
+
+export async function updateProductService(
+  id: string,
+  { name_product, category, quantity, price }: TProduct,
+): Promise<{ status: string; data?: TProduct; message?: string }> {
+  const isProduct = await productModel.findByPk(id);
+
+  if (!isProduct) {
+    return {
+      status: 'ERROR',
+      message: 'ID not found',
+    };
+  }
+
+  const validationError = validationNewProduct({
+    name_product,
+    category,
+    quantity,
+    price,
+  });
+
+  if (validationError) {
+    return {
+      status: validationError.status,
+      message: validationError.message,
+    };
+  }
+
+  await isProduct.update({ name_product, category, quantity, price });
+
+  return {
+    status: 'SUCCESS',
+    data: isProduct.toJSON() as TProduct,
+  };
+}
