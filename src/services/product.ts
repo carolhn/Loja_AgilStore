@@ -80,3 +80,21 @@ export async function updateProductService(
     data: isProduct.toJSON() as TProduct,
   };
 }
+
+export async function deleteProductService(id: string): Promise<{ status: string; message?: string }> {
+  const isProduct = await productModel.findByPk(id);
+
+  if (!isProduct) {
+    return {
+      status: 'ERROR',
+      message: 'ID not found',
+    };
+  }
+
+  await isProduct.destroy();
+
+  return {
+    status: 'SUCCESS',
+    message: 'Product deleted successfully',
+  };
+}
