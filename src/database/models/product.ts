@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import dbConnect from '../config/database';
 
 const productModel = dbConnect.define(
-  'Product',
+  'Products',
   {
     id: {
       allowNull: false,
@@ -29,7 +29,7 @@ const productModel = dbConnect.define(
   },
   {
     timestamps: false,
-    tableName: 'products',
+    tableName: 'Products',
   },
 );
 
