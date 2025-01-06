@@ -3,6 +3,7 @@ import {
   createProductService,
   deleteProductService,
   listProductService,
+  searchProductService,
   updateProductService,
 } from '../services/product';
 
@@ -65,6 +66,22 @@ export async function deleteProductController(req: Request, res: Response): Prom
     }
 
     res.status(200).json(deletedProduct);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+export async function searchProductController(req: Request, res: Response): Promise<void> {
+  const { id, name_product } = req.query;
+
+  try {
+    const productList = await searchProductService(id as string, name_product as string);
+
+    if (productList.status === 'ERROR') {
+      res.status(404).json({ message: productList.message });
+    }
+
+    res.status(200).json(productList);
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' });
   }

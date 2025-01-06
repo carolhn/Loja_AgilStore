@@ -98,3 +98,35 @@ export async function deleteProductService(id: string): Promise<{ status: string
     message: 'Product deleted successfully',
   };
 }
+
+export async function searchProductService(
+  id?: string,
+  name_product?: string,
+): Promise<{ status: string; data?: TProduct[]; message?: string }> {
+  const filterSearch = id ? { id } : { name_product };
+
+  if (!filterSearch) {
+    return {
+      status: 'ERROR',
+      message: 'ID or name_product must be provided',
+    };
+  }
+
+  const productList = await productModel.findAll({
+    where: {
+      ...filterSearch,
+    },
+  });
+
+  if (productList.length === 0) {
+    return {
+      status: 'ERROR',
+      message: 'No products found',
+    };
+  }
+
+  return {
+    status: 'SUCCESS',
+    data: productList.map(product => product.toJSON() as TProduct),
+  };
+}
