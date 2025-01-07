@@ -31,7 +31,7 @@ Certifique-se de ter instalado:
 
 ### Importante⚠️</br>
 
-Se estiver utilizando o Windows, abra o Docker Desktop, caso não tenha instalado, faça o downlod aqui
+Se estiver utilizando o Windows, abra o Docker Desktop, caso não tenha instalado, faça o downlod aqui</br>
 [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Passo a Passo:
@@ -50,7 +50,7 @@ cd Loja_AgilStore
 
 #### 2. Configure as variáveis de ambiente:</br>
 
-Copie o arquivo `.env.example` para `.env` e preencha os valores necessários. Em seguida, remova a extensão `.example`\:
+Copie o arquivo `.env.example` para `.env` e preencha os valores necessários. Em seguida, remova a extensão `.example`
 
 #### 3. Instale as dependências do projeto:
 
@@ -75,3 +75,7 @@ npm run dev
 A aplicação estará disponível em: `http://localhost:5333`.
 
 - Para listar todos os produtos `http://localhost:5333/products/list_product`.
+
+#### 7. Testando a API
+
+Para testar as rotas da API, basta importar o arquivo `insomnia_routes.json` presente na pasta `insomnia` no Insomnia. Esse arquivo já contém todas as requisições configuradas para facilitar o processo de testes.

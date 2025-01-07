@@ -1,0 +1,259 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-01-07T02:36:10.779Z",
+  "__export_source": "insomnia.desktop.app:v10.3.0",
+  "resources": [
+    {
+      "_id": "req_8787fff7e91f4a409260709083568ea8",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736133812604,
+      "created": 1736045508431,
+      "url": "http://localhost:5333/products/new_product",
+      "name": "Create Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name_product\": \"Pendrive 128GB\",\n  \"quantity\": 99,\n  \"category\": \"acessorios\",\n  \"price\": 55.10\n}\n"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/10.3.0" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1736045508431,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_28b0959aa80344bd889e277de4d80330",
+      "parentId": null,
+      "modified": 1736045486846,
+      "created": 1736045486846,
+      "name": "loja_agilstore",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_1a71c6c2f2d04f64889ce408f157e11c",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736122819254,
+      "created": 1736120383198,
+      "url": "http://localhost:5333/products/list_product",
+      "name": "List Product",
+      "description": "",
+      "method": "GET",
+      "body": { "mimeType": "application/json", "text": "" },
+      "parameters": [
+        {
+          "id": "pair_d8d71b586c47438e86db4d0a5b2631c3",
+          "name": "category",
+          "value": "brinquedo",
+          "description": "",
+          "disabled": true,
+          "type": "text",
+          "multiline": false
+        },
+        {
+          "id": "pair_8fe042c5fc1f4429b7e953629f62c4b4",
+          "name": "orderProduct",
+          "value": "quantity",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_06201b01d23a4ed4b7bf7c975b6c025a",
+          "name": "orderProduct",
+          "value": "price",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_2aee69fe72d4455ca7245f130d04c879",
+          "name": "orderProduct",
+          "value": "name_product",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/10.3.0" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1735559119628,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c28b62e13f8a46d58fffc63b09a46757",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736133890595,
+      "created": 1736129431420,
+      "url": "http://localhost:5333/products/search",
+      "name": "Search Product",
+      "description": "",
+      "method": "GET",
+      "body": { "mimeType": "application/json", "text": "" },
+      "parameters": [
+        {
+          "id": "pair_225bd4476a994cbfb67c67d17802c1bc",
+          "name": "id",
+          "value": "18",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_11949fd81b18471fb8a07461f363f187",
+          "name": "name_product",
+          "value": "Mouse Gamer",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/10.3.0" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1735437522427.25,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_292f64060c5a4a6888663c86d35299dd",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736133926354,
+      "created": 1736125406473,
+      "url": "http://localhost:5333/products/update_product/19",
+      "name": "Update Product",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": " {\n    \"id\": 19,\n    \"name_product\": \"Notebook Samsung\",\n    \"category\": \"eletrônico\",\n    \"quantity\": 5,\n    \"price\": \"4449.99\"\n  }"
+      },
+      "parameters": [
+        {
+          "id": "pair_d8d71b586c47438e86db4d0a5b2631c3",
+          "name": "category",
+          "value": "brinquedo",
+          "description": "",
+          "disabled": true,
+          "type": "text",
+          "multiline": false
+        },
+        {
+          "id": "pair_8fe042c5fc1f4429b7e953629f62c4b4",
+          "name": "orderProduct",
+          "value": "quantity",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_06201b01d23a4ed4b7bf7c975b6c025a",
+          "name": "orderProduct",
+          "value": "price",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_2aee69fe72d4455ca7245f130d04c879",
+          "name": "orderProduct",
+          "value": "name_product",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/10.3.0" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1735315925226.5,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b78d7ec9da024cb298b055cdd37d1ace",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736133418163,
+      "created": 1736126320484,
+      "url": "http://localhost:5333/products/remove_product/16",
+      "name": "Delete Product",
+      "description": "",
+      "method": "DELETE",
+      "body": { "mimeType": "application/json", "text": "" },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "User-Agent", "value": "insomnia/10.3.0" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1735194328025.75,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_c1cc57d5b92a3d9c75fbb5183be2477f985fdba8",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736045486850,
+      "created": 1736045486850,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1736045486850,
+      "environmentType": "kv",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_c1cc57d5b92a3d9c75fbb5183be2477f985fdba8",
+      "parentId": "wrk_28b0959aa80344bd889e277de4d80330",
+      "modified": 1736045486852,
+      "created": 1736045486852,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    }
+  ]
+}
