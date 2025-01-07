@@ -1,0 +1,51 @@
+[
+  {
+    "id": 17,
+    "name_product": "Fone de Ouvido Bluetooth JBL",
+    "category": "eletrônico",
+    "quantity": 10,
+    "price": "89.49"
+  },
+  {
+    "id": 18,
+    "name_product": "Controle Sony",
+    "category": "eletrônico",
+    "quantity": 20,
+    "price": "102.99"
+  },
+  {
+    "id": 19,
+    "name_product": "Notebook Samsung",
+    "category": "eletrônico",
+    "quantity": 5,
+    "price": "4449.99"
+  },
+  {
+    "id": 20,
+    "name_product": "Mouse Gamer",
+    "category": "eletrônico",
+    "quantity": 20,
+    "price": "19.99"
+  },
+  {
+    "id": 21,
+    "name_product": "Cabo USB",
+    "category": "acessorios",
+    "quantity": 50,
+    "price": "4.5"
+  },
+  {
+    "id": 22,
+    "name_product": "Mousepad ",
+    "category": "acessorios",
+    "quantity": 70,
+    "price": "15.8"
+  },
+  {
+    "id": 23,
+    "name_product": "Pendrive 128GB",
+    "category": "acessorios",
+    "quantity": 99,
+    "price": "55.1"
+  }
+]
